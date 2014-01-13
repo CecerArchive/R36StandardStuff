@@ -12,6 +12,11 @@ namespace IHI.Server.Plugins.R36StandardStuff
 {
     public class R36StandardStuff : Plugin
     {
+        public override string Id
+        {
+            get { return "cecer:r36standardstuff"; }
+        }
+
         public override string Name
         {
             get
