@@ -31,6 +31,12 @@ namespace IHI.Server.Plugins.R36StandardStuff
             private set;
         }
 
+        public GameSocketManager GameSocketManager
+        {
+            get;
+            private set;
+        }
+
         public R36StandardStuff()
         {
             CoreManager.ServerCore.Installer
@@ -43,12 +49,6 @@ namespace IHI.Server.Plugins.R36StandardStuff
                         "The port to listen for R36 connections on.", "14478")
                         .AddExample("14478")
                         .AddExample("30000"));
-        }
-
-        public GameSocketManager GameSocketManager
-        {
-            get;
-            private set;
         }
 
         /// <summary>
