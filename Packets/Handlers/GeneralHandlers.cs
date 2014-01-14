@@ -5,9 +5,12 @@ using System.Net.Sockets;
 using System.Text;
 using IHI.Server.Events;
 using IHI.Server.Habbos;
+using IHI.Server.Habbos.Messenger;
 using IHI.Server.Network;
 using IHI.Server.Network.Messages;
+using IHI.Server.Plugins.LibMessenger;
 using IHI.Server.Plugins.R36StandardStuff.Packets;
+using IHI.Server.Plugins.R36StandardStuff.Packets.Senders;
 using IHI.Server.Useful;
 
 namespace IHI.Server.Plugins.R36StandardStuff
@@ -141,6 +144,24 @@ namespace IHI.Server.Plugins.R36StandardStuff
                 UnknownB = 12,
                 UnknownC = 0,
                 UnknownD = 1
+            }.Send(sender);
+        }
+
+        internal static void ProcessMessengerInit(Habbo sender, IncomingMessage message)
+        {
+            MessengerManager manager = CoreManager.ServerCore.GetMessengerManager();
+            new MMessengerInit
+            {
+                BefriendablesToExclude = new HashSet<Befriendable>
+                {
+                    manager.GetBefriendable(sender)
+                },
+                Categories = manager.GetCategories(sender),
+                MaximumFriends = 200, // TODO: Make this controllable by plugins.
+                UnknownA = 10,
+                UnknownB = 20,
+                UnknownC = 30,
+                UnknownD = false
             }.Send(sender);
         }
     }

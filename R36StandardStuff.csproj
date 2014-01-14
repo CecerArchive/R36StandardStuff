@@ -48,6 +48,7 @@
     <Compile Include="Packets\Senders\MCreditBalance.cs" />
     <Compile Include="Packets\Senders\MFuseright.cs" />
     <Compile Include="Packets\Senders\MHabboData.cs" />
+    <Compile Include="Packets\Senders\MMessengerInit.cs" />
     <Compile Include="Packets\Senders\MPermissions.cs" />
     <Compile Include="Packets\Senders\MSecretKey.cs" />
     <Compile Include="Packets\Senders\MSessionParams.cs" />
@@ -60,6 +61,11 @@
     <ProjectReference Include="..\IHI\IHI.csproj">
       <Project>{c4a7184f-5843-4d97-889f-fbc8153007f1}</Project>
       <Name>IHI</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\LibMessenger\LibMessenger.csproj">
+      <Project>{8200660c-f4e2-472d-a2d3-8b9f110d53ac}</Project>
+      <Name>LibMessenger</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
